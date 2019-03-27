@@ -22,6 +22,15 @@ $(document).ready(function(){
 
       //close modal
       $('#questionModal').modal('toggle');
+
+    });
+
+    $(".questionImage").attr('src', 'images/question-mark.svg');
+
+    $(".questionImage").click(function(){
+      
+      //Change image source
+      $(this).attr('src', 'images/js.png');
     });
     
 
