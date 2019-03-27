@@ -25,8 +25,10 @@ $(document).ready(function(){
 
     });
 
+    //sets questionImage source
     $(".questionImage").attr('src', 'images/question-mark.svg');
 
+    //on click event to change the image source
     $(".questionImage").click(function(){
       
       //Change image source
