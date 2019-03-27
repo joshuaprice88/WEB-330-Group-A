@@ -26,26 +26,241 @@
 
 <body>
     <div class="container">
-        <br>
+        <!--Landing Page Start
+        This is what the user will see, when the button is clicked a model will open and 
+        request the user to enter their first and last name. The model will have button that 
+        will triger a jQuery click event to hid this section and show the trivia content. The first 
+        and last name is to be stored into a variables.         
+        -->
+        
+        <div id="startContent">
+            <br/><br/>
         <div class="row">
             <div class="col-xl-10">
                 <div class="jumbotron">
                     <h1>JavaScript Trivia</h1>
                     <h2>Right Between the Brackets</h2>
-
-                    <!--Testing Knockout.js is working-->
-                    <div id="one">
-                        <span data-bind="text: something"></span>
+                    <p>You ready to Play a game? Click the button and lets get started!</p>
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#startModal">Lets Do this!</button>
+                </div>
+            </div>
+        </div>        
+            <!-- Modal requesting first and last name-->
+        <div class="modal fade" id="startModal" tabindex="-1" role="dialog" aria-labelledby="startModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <!--Modal Heading-->
+                        <h1 class="modal-title" id="startModalLabel">What's Your name?</h1>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
                     </div>
-                    
-                    <button onclick="isBound();">IsBound?</button>
-                    <button onclick="bind();">Bind</button>
-                    <!--End test-->
+                    <!--Modal Body content-->
+                    <div class="modal-body">
+                        <h3>Lets get that name from you.</h3>
+                        <!--First and last name input USE KNOCKOUT TO STORE THESE INTO VARIABLE WITH SO WE CAN BIND THEM LATER-->
+                        <div class="form-group">
+                            <label for="firstName">First Name:</label>
+                            <input type="text" class="form-control" placeholder="John" data-bind="value: firstName" id="firstName">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="lastName">Last Name:</label>
+                            <input type="text" class="form-control" placeholder="Doe" data-bind="value: lastName" id="lastName">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <!--Modal buttons-->
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" id="startGame" class="btn btn-primary">Lets Start</button>
+                    </div>
+                </div>
                 </div>
             </div>
         </div>
-    </div>
-   
+        <!--END OF LANDING PAGE CONTENT-->
+
+        <!-- START OF GAME CONTENT
+            *This will appear via the click event triggered from the modal and display the users gathered from before.
+            
+            *This will also have the number of correct and incorrect questions answered as well as total questions answered.
+            The numbers can be in a variable and when we check if they answered correct or not we can add to 1 to the corresponding
+            correct or incorrect. The total we can use computed observables to add the two together then bind it to the UI.
+            
+            *We can loop throgh the categoreys and place them into a div horizontil across the screen and have the questions
+            verticle. OR  we can do the two loops, one to get the categories then take that and put it through another loop and 
+            pull the questions that match that category then display it either by binding or concatenating it like we did in earlier weeks.
+            
+            *THIS IS JUST STATIC CONTENT WE SHOULD REALLY ONLY HAVE ONE OF THE THREE DIV AND USE THAT AS A TEMPLATE THEN LOOP
+            THROUGH IT TO DISPLAY EVERYTHING.
+        -->
+        <div id="gameContent" class="displayNone">
+            <!--USE THE SPAN TO BIND THE NAME AND COMPUTED OBSERVABLE TO COMBINE THE FIRST AND LAST NAME INTO FULL NAME AND DO THE SAME WITH THE ANSWERS-->
+            <nav class="navbar navbar-dark bg-dark">
+                <span class="navbar-brand">Hello, <span>John Doe</span></span>
+                <span class="navbar-brand">Correct Answeres: <span>0</span></span>
+                <span class="navbar-brand">Incorrect Answers: <span>0</span></span>
+                <span class="navbar-brand">Total Answered: <span>0</span></span>
+            </nav>
+            <br/><br/>
+
+            <div class="row">
+            <!--category 1-->
+            <div class="col-lg-4 text-center">
+                <h4>Category 1</h4>
+
+                <div class="row">
+                    <div class=" col-lg-12 text-center">
+                        <a href="" data-toggle="modal" data-target="#questionModal">
+                            <img src="images/js.png" alt="js" class="img-thumbnail questionImage">
+                        </a>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-12 text-center">
+                        <a href="" data-toggle="modal" data-target="#questionModal">
+                            <img src="images/js.png" alt="js" class="img-thumbnail questionImage">
+                        </a>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-12 text-center">
+                        <a href="" data-toggle="modal" data-target="#questionModal">
+                            <img src="images/js.png" alt="js" class="img-thumbnail questionImage">
+                        </a>
+                    </div>
+                </div>
+            
+            </div><!--end category 1-->
+            
+            <!--category 2-->
+            
+            <div class="col-lg-4 text-center">
+                <h4>Category 2</h4>
+
+                <div class="row">
+                    <div class=" col-lg-12 text-center">
+                        <a href="" data-toggle="modal" data-target="#questionModal">
+                            <img src="images/js.png" alt="js" class="img-thumbnail questionImage">
+                        </a>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-12 text-center">
+                        <a href="" data-toggle="modal" data-target="#questionModal">
+                            <img src="images/js.png" alt="js" class="img-thumbnail questionImage">
+                        </a>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-12 text-center">
+                        <a href="" data-toggle="modal" data-target="#questionModal">
+                            <img src="images/js.png" alt="js" class="img-thumbnail questionImage">
+                        </a>
+                    </div>
+                </div>
+            
+            </div><!--end category 2-->
+
+            <!--category 3-->
+            <div class="col-lg-4 text-center">
+                    <h4>Category 3</h4>
+    
+                    <div class="row">
+                        <div class=" col-lg-12 text-center">
+                            <a href="" data-toggle="modal" data-target="#questionModal">
+                                <img src="images/js.png" alt="js" class="img-thumbnail questionImage">
+                            </a>
+                        </div>
+                    </div>
+    
+                    <div class="row">
+                        <div class="col-lg-12 text-center">
+                            <a href="" data-toggle="modal" data-target="#questionModal">
+                                <img src="images/js.png" alt="js" class="img-thumbnail questionImage">
+                            </a>
+                        </div>
+                    </div>
+    
+                    <div class="row">
+                        <div class="col-lg-12 text-center">
+                            <a href="" data-toggle="modal" data-target="#questionModal">
+                                <img src="images/js.png" alt="js" class="img-thumbnail questionImage">
+                            </a>
+                        </div>
+                    </div>
+        
+                </div><!--end category 3-->
+            </div><!--end of row div for all categorys-->
+            <br/><br/>
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h4>Bonus Question</h4>
+                    <a href="" data-toggle="modal" data-target="#questionModal">
+                        <img src="images/js.png" alt="js" class="img-thumbnail questionImage">
+                    </a>
+                </div>
+            </div>
+        
+            <!-- Question Modal
+            *Hopefully we can reuse this modal and pass in a parameter to retrieve the data then display it.
+            
+            *if we have multiple choice and true false questions maybe have and if statment checking to see
+            what one it is and then loop through a predefined output. or maybe I am over thinking it and if you have 
+            once form-check div and loop through that for true false it will only fire twice vs the four answeres.
+            -->
+            <div class="modal fade" id="questionModal" tabindex="-1" role="dialog" aria-labelledby="questionModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="questionModalLabel">Question</h5>
+                        </div>
+                        <div class="modal-body">
+                            <P>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer at est mi. Cras euismod mi non 
+                                pellentesque vehicula. Ut sollicitudin, ex at blandit ornare, mi elit pharetra lorem, sed convallis
+                                tortor elit vitae tellus. Integer ut risus lacus?</P>
+
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="">
+                                <label class="form-check-label" for="exampleRadios2">
+                                    Answer 1
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="">
+                                <label class="form-check-label" for="exampleRadios2">
+                                    Answer 2
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="">
+                                <label class="form-check-label" for="exampleRadios2">
+                                    Answer 3
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="">
+                                <label class="form-check-label" for="exampleRadios2">
+                                    Answer 4
+                                </label>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-success" id="submitAnswer">Submit Answer</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div><!--end of gameContent div-->
+
+    </div><!--END CONTAINER DIV-->
 </body>
 
 </html>

@@ -1,0 +1,8 @@
+.questionImage{
+    max-width: 100px;
+    margin: 10px;
+}
+
+.displayNone{
+    display:none; /* used to set gameContent to display none then show it with jQuery */
+}
