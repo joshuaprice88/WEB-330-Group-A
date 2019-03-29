@@ -9,19 +9,10 @@
     <!-- Stylesheet - Bootstrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
     <link rel="stylesheet" href="styles/styles.css">
 
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-    crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" 
-    crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" 
-    crossorigin="anonymous"></script>
-
-    <!-- Reference for Knockout.js -->
-    <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/knockout/3.5.0/knockout-min.js'></script>
-    <script type='text/javascript' src='js/script.js'></script>
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
 </head>
 
 <body>
@@ -29,20 +20,20 @@
         <!--Landing Page Start
         This is what the user will see, when the button is clicked a model will open and 
         request the user to enter their first and last name. The model will have button that 
-        will triger a jQuery click event to hid this section and show the trivia content. The first 
+        will trigger a jQuery click event to hid this section and show the trivia content. The first 
         and last name is to be stored into a variables.         
         -->
         
         <div id="startContent">
             <br/><br/>
-        <div class="row">
+        <div class="row d-flex justify-content-center">
             <div class="col-xl-10">
-                <div class="jumbotron">
+                <div class="jumbotron text-center">
                     <h1>JavaScript Trivia</h1>
                     <h2>Right Between the Brackets</h2>
                     <p>You ready to Play a game? Click the button and lets get started!</p>
                     <!-- Button trigger modal -->
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#startModal">Lets Do this!</button>
+                    <button id="startBtn" type="button" class="btn btn-dark" data-toggle="modal" data-target="#startModal">Lets Do this!</button>
                 </div>
             </div>
         </div>        
@@ -89,8 +80,8 @@
             The numbers can be in a variable and when we check if they answered correct or not we can add to 1 to the corresponding
             correct or incorrect. The total we can use computed observables to add the two together then bind it to the UI.
             
-            *We can loop throgh the categoreys and place them into a div horizontil across the screen and have the questions
-            verticle. OR  we can do the two loops, one to get the categories then take that and put it through another loop and 
+            *We can loop through the categories and place them into a div horizontal across the screen and have the questions
+            vertical. OR  we can do the two loops, one to get the categories then take that and put it through another loop and 
             pull the questions that match that category then display it either by binding or concatenating it like we did in earlier weeks.
             
             *THIS IS JUST STATIC CONTENT WE SHOULD REALLY ONLY HAVE ONE OF THE THREE DIV AND USE THAT AS A TEMPLATE THEN LOOP
@@ -100,7 +91,7 @@
             <!--USE THE SPAN TO BIND THE NAME AND COMPUTED OBSERVABLE TO COMBINE THE FIRST AND LAST NAME INTO FULL NAME AND DO THE SAME WITH THE ANSWERS-->
             <nav class="navbar navbar-dark bg-dark">
                 <span class="navbar-brand">Hello, <span>John Doe</span></span>
-                <span class="navbar-brand">Correct Answeres: <span>0</span></span>
+                <span class="navbar-brand">Correct Answers: <span>0</span></span>
                 <span class="navbar-brand">Incorrect Answers: <span>0</span></span>
                 <span class="navbar-brand">Total Answered: <span>0</span></span>
             </nav>
@@ -197,7 +188,7 @@
                     </div>
         
                 </div><!--end category 3-->
-            </div><!--end of row div for all categorys-->
+            </div><!--end of row div for all categories-->
             <br/><br/>
             <div class="row">
                 <div class="col-lg-12 text-center">
@@ -211,11 +202,11 @@
             <!-- Question Modal
             *Hopefully we can reuse this modal and pass in a parameter to retrieve the data then display it.
             
-            *if we have multiple choice and true false questions maybe have and if statment checking to see
+            *if we have multiple choice and true false questions maybe have and if statement checking to see
             what one it is and then loop through a predefined output. or maybe I am over thinking it and if you have 
-            once form-check div and loop through that for true false it will only fire twice vs the four answeres.
+            once form-check div and loop through that for true false it will only fire twice vs the four Answers.
             -->
-            <div class="modal fade" id="questionModal" tabindex="-1" role="dialog" aria-labelledby="questionModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+            <div class="modal fade" id="questionModal" tabindex="-1" role="dialog" aria-labelledby="questionModalLabel" aria-hidden="true" >
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -261,6 +252,20 @@
         </div><!--end of gameContent div-->
 
     </div><!--END CONTAINER DIV-->
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" 
+    crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" 
+    crossorigin="anonymous"></script>
+
+    <!-- Reference for Knockout.js -->
+    <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/knockout/3.5.0/knockout-min.js'></script>
+
+    <!-- Custom Scripts -->
+    <script type='text/javascript' src='js/script.js'></script>
 </body>
 
 </html>

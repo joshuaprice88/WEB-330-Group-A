@@ -1,3 +1,15 @@
+body {
+    font-family: 'Raleway', sans-serif;
+}
+
+.jumbotron {
+    background-color: #fff;
+}
+
+#startBtn {
+    border-radius: 0;
+}
+
 .questionImage{
     max-width: 100px;
     margin: 10px;
