@@ -1,7 +1,7 @@
 
 $(document).ready(function(){
   
-   //Name Modal button id="startGame" is clicked will trigger startContent to hide and gameContent to show
+   //Name Modal button id="startGame" when clicked will trigger startContent to hide and gameContent to show
    $("#startGame").click(function(){
       $("#startContent").hide();
       $("#gameContent").show();
@@ -28,7 +28,7 @@ $(document).ready(function(){
     //sets questionImage source
     $(".questionImage").attr('src', 'images/question-mark.svg');
 
-    //on click event to change the image source
+    //on click event to change the image source of .questionImage but only the one that is clicked
     $(".questionImage").click(function(){
       
       //Change image source
