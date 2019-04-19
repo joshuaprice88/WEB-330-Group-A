@@ -32,6 +32,7 @@ $(document).ready(function(){
       $(".questionImage").click(function(){
         //Change image source
         $(this).attr('src', 'images/js.png');
+        //makes image not clickable
         $(this).parent().css("pointer-events", 'none');
       });
       
