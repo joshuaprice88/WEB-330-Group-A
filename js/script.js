@@ -76,11 +76,7 @@ $(document).ready(function(){
         $(this).parent().css("pointer-events", 'none');
       });
       
-      /* Josh Price
-      // ajax question and loop them to create categories and question squars
-      // add click that passes a "questionId" param to model
-      */
-
+     
      $.getJSON("https://wthomason.github.io/bioSite/data/questions.json", function(data, status) {
       if(status !== 'success') {
         alert("Something went wrong while fetching questions, please try again.");
@@ -122,88 +118,99 @@ $(document).ready(function(){
       /* Drew Hanson
       // set up model and function to take param of "questionId"from click and pull corresponding data from the ajax
       // loop through potential answers
-      
-     function questionId ()
+      */
+
+     function questionId (){
       var question1;
-      if (answer=a)
+      if (answer=a){
      question1 = "correct";
     } 
     else if (answer !==a) {
       question1 = "incorrect";
-
-      function questionId ()
-      var question2;
-      if (answer=b)
+    }
+  }
+      function questionId (){
+     var question2;
+      if (answer=b){
      question2 = "correct";
     } 
     else if (answer !==b) {
       question2 = "incorrect";
-
-      function questionId ()
-      var question1;
-      if (answer=a)
+    }
+  }
+      function questionId (){
+      var question3;
+      if (answer=a){
      question3 = "correct";
     } 
     else if (answer !==a) {
       question3 = "incorrect";
+    }
+  }
 
-      function questionId ()
+      function questionId (){
       var question4;
-      if (answer=a)
+      if (answer=a){
      question4 = "correct";
+    } else if  (answer !==a) {
     } 
     else if (answer !==a) {
       question4 = "incorrect";
-
-      function questionId ()
+    }
+  }
+      function questionId (){
       var question5;
-      if (answer=b)
+      if (answer=b){
      question5 = "correct";
     } 
     else if (answer !==b) {
       question5 = "incorrect";
+    }
+  }
 
-      function questionId ()
-      var question6;
-      if (answer=a)
+      function questionId () {
+        var question6;
+      if (answer=a){
      question6 = "correct";
-    } 
-    else if (answer !==a) {
+    }else if (answer !==a) {
       question6 = "incorrect";
-
-      function questionId ()
+    }
+  }
+      function questionId (){
       var question7;
-      if (answer=b)
+      if (answer=b){
      question7 = "correct";
     } 
     else if (answer !==b) {
       question7 = "incorrect";
-
-      function questionId ()
+    }
+  }
+      function questionId (){
       var question8;
-      if (answer=a)
+      if (answer=a){
      question8 = "correct";
     } 
     else if (answer !==a) {
       question8 = "incorrect";
-
-      function questionId ()
+    }
+  }
+      function questionId (){
       var question9;
-      if (answer=a)
+      if (answer=a){
      question9 = "correct";
     } 
     else if (answer !==a) {
       question9 = "incorrect";
-
-      function questionId ()
+    }
+  }
+      function questionId () {
       var question10;
-      if (answer=c)
+     if (answer=c){
      question10 = "correct";
-    } 
-    else if (answer !==c) {
+    } else  if (answer !==c) {
       question10 = "incorrect";
     }
-      
+  }
       /* Tyler and Drew
       // create function that will check when question submit button is clicked to do the following
       // check to see it answer has been selected if yes go to next step if no stay on question.
