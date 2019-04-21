@@ -93,7 +93,7 @@
                 <span class="navbar-brand">Hello, <span data-bind="text: firstName"></span></span>
                 <span class="navbar-brand">Correct Answers: <span data-bind="text: correctAnswers"></span></span>
                 <span class="navbar-brand">Incorrect Answers: <span data-bind="text: incorrectAnswers"></span></span>
-                <span class="navbar-brand">Total Answered: <span>0</span></span>
+                <span class="navbar-brand">Total Answered: <span data-bind="text: totalAnswers"></span></span>
             </nav>
             <br/><br/>
 
@@ -252,6 +252,13 @@
             </div>
 
         </div><!--end of gameContent div-->
+
+        <div id="results" class="displayNone">
+            <h1>Your game results</h1>
+            <h3>Well <span data-bind="text: firstName"></span> <span data-bind="text: lastName"></span> lets see how you did!</h3>
+            <h4>Ranking Level: <span data-bind="text: ranking"></span></h4>
+            <h4>Overall Percentage: <span></span></h4>
+        </div>
 
     </div><!--END CONTAINER DIV-->
 

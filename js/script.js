@@ -10,11 +10,30 @@ $(document).ready(function(){
       self.firstName = ko.observable("");
       self.lastName = ko.observable("");
       // End Tyler's Changes
-      var correctAnswers;
-      var incorrectAnswers;
-      self.correctAnswers = ko.observable(0);
-      self.incorrectAnswers = ko.observable(0);
-      var totalAnswers = correctAnswers + incorrectAnswers;
+
+      
+      self.correctAnswers = ko.observable(1); //BE SURE TO SET TO 0
+      self.incorrectAnswers = ko.observable(3); //BE SURE TO SET TO 0
+      
+      self.totalAnswers = ko.computed(function() {
+        return this.correctAnswers() + this.incorrectAnswers();
+      }, this);
+
+      
+      self.ranking = ko.computed(function() {
+        if(self.correctAnswers() > 7 || self.correctAnswers()  < 11){
+          return "Expert";
+          
+        }
+        else if(self.correctAnswers()  > 5 || self.correctAnswers()  < 9){
+          return "Novice";
+        }
+        else if(self.correctAnswers < 6){
+          return "Beginner";
+        }
+      }, this)
+
+         
 
       //Name Modal button id="startGame" when clicked will trigger startContent to hide and gameContent to show
       $("#startGame").click(function(){
@@ -73,7 +92,22 @@ $(document).ready(function(){
       // create function that will take the computed observable totalAnswers and see it it is equal to 10
       // if so then direct user to resualts page
       // take Answers variables and display the grading criteria according to rubric.
+      var total = 0;
+      
+     if(total === 10){
+      $("#startContent").hide();
+      $("#gameContent").hide();
+      $("#results").show();
+           
+        Ranking criteria:
+        Expert: 8-10 correct answers
+        Novice: 6-8 correct answers
+        Beginner: Less than 6 correct answers
+        
+        
+     }
       */
+     
   };
 
   //applying the bindings in the GameViewModel
