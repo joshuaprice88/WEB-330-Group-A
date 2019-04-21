@@ -24,7 +24,7 @@ $(document).ready(function(){
         return (this.correctAnswers() / this.totalAnswers() * 100).toFixed(0) + "%";
       }, self);
 
-
+      self.userAnswer = ko.observable("");
 
 
       //CUSTOM BINDING TO DISPLAY RANKING
@@ -64,17 +64,6 @@ $(document).ready(function(){
         //close modal
         $('#questionModal').modal('toggle');
       });
-
-      //sets questionImage source
-      $(".questionImage").attr('src', 'images/question-mark.svg');
-
-      //on click event to change the image source of .questionImage but only the one that is clicked
-      $(".questionImage").click(function(){
-        //Change image source
-        $(this).attr('src', 'images/js.png');
-        //makes image not clickable
-        $(this).parent().css("pointer-events", 'none');
-      });
       
      
      $.getJSON("https://wthomason.github.io/bioSite/data/questions.json", function(data, status) {
@@ -82,7 +71,7 @@ $(document).ready(function(){
         alert("Something went wrong while fetching questions, please try again.");
         return;
       } 
-      console.log("your in the ajax baby!!")
+      console.log("your in the ajax baby!!");
       const $dynamicQuestions = $('#dynamicQuestions');
       const categories = data.data.categories;
       
@@ -119,6 +108,10 @@ $(document).ready(function(){
       // set up model and function to take param of "questionId"from click and pull corresponding data from the ajax
       // loop through potential answers
       */
+
+    self.checkAnswer = function(){
+      alert("yay submitted form!");
+    }
 
      function questionId (){
       var question1;
@@ -272,11 +265,19 @@ function questionTemplate(question) {
 function answerTemplate(key, answer) {
   return `
   <div class="form-check">
-      <input class="form-check-input" type="radio" name="answer" id="${key}" value="${key}">
+      <input class="form-check-input" type="radio" name="answer" data-bind="checked: userAnswer" id="${key}" value="${key}">
       <label class="form-check-label" for="${key}">
           ${answer}
       </label>
   </div>
+  `;
+}
+
+function buttonTemplate(key, answer) {
+  return `<button type="button" class="btn btn-success" id="submitAnswer">Submit Answer</button>
+  
+      ${key}
+          ${answer}
   `;
 }
 
