@@ -256,7 +256,7 @@
         <div id="results" class="displayNone">
             <h1>Your game results</h1>
             <h3>Well <span data-bind="text: firstName"></span> <span data-bind="text: lastName"></span> lets see how you did!</h3>
-            <h4>Ranking Level: <span data-bind="text: ranking"></span></h4>
+            <h4>Ranking Level: <span id="displayRank" data-bind="ranking: correctAnswers"></span></h4>
             <h4>Overall Percentage: <span></span></h4>
         </div>
 
