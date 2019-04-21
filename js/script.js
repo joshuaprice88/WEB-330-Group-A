@@ -12,12 +12,16 @@ $(document).ready(function(){
       // End Tyler's Changes
 
       
-      self.correctAnswers = ko.observable(8); //BE SURE TO SET TO 0
+      self.correctAnswers = ko.observable(0); //BE SURE TO SET TO 0
       self.incorrectAnswers = ko.observable(0); //BE SURE TO SET TO 0
       
       //COMPUTED OBSERVABLE TO ADD INCORRECT AND CORRECT ANSWERS FOR A TOTAL QUESTIONS ANSWERED
       self.totalAnswers = ko.computed(function() {
         return this.correctAnswers() + this.incorrectAnswers();
+      }, self);
+
+      self.overallPercentage = ko.computed(function() {
+        return (this.correctAnswers() / this.totalAnswers() * 100).toFixed(0) + "%";
       }, self);
 
 
@@ -45,7 +49,7 @@ $(document).ready(function(){
           
         }
       };
-           
+         
 
       //Name Modal button id="startGame" when clicked will trigger startContent to hide and gameContent to show
       $("#startGame").click(function(){
@@ -72,16 +76,6 @@ $(document).ready(function(){
         $(this).parent().css("pointer-events", 'none');
       });
       
-      /* Tyler Armstrong
-      // pull First and last data from name startGame model form and store into variables!!!!
-      // Diplay Name where needed
-      */
-
-      /* Tyler's Response:
-      // Done. I set firstName & var lastName to ko.observables (i.e. this.firstName). For example, 
-      // anytime you want to reference the first name, just use 'data-bind="value: firstName"'
-      */
-
       /* Josh Price
       // ajax question and loop them to create categories and question squars
       // add click that passes a "questionId" param to model
@@ -89,7 +83,7 @@ $(document).ready(function(){
 
      $.getJSON("data/questions.json", function(data, status) {
       if(status !== 'success') {
-        alert("Something went wrong while fetching questions, please try again.")
+        alert("Something went wrong while fetching questions, please try again.");
         return;
       } 
 
@@ -224,9 +218,7 @@ $(document).ready(function(){
         
      }
       */
-     
-
-     
+          
      
   };//END OF VIEW MODEL
 
