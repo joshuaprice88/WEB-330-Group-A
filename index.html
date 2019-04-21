@@ -90,7 +90,7 @@
         <div id="gameContent" class="displayNone">
             <!--USE THE SPAN TO BIND THE NAME AND COMPUTED OBSERVABLE TO COMBINE THE FIRST AND LAST NAME INTO FULL NAME AND DO THE SAME WITH THE ANSWERS-->
             <nav class="navbar navbar-dark bg-dark">
-                <span class="navbar-brand">Hello, <span>John Doe</span></span>
+                <span class="navbar-brand">Hello, <span data-bind="text: firstName"></span></span>
                 <span class="navbar-brand">Correct Answers: <span>0</span></span>
                 <span class="navbar-brand">Incorrect Answers: <span>0</span></span>
                 <span class="navbar-brand">Total Answered: <span>0</span></span>
@@ -265,7 +265,7 @@
 
     <!-- Reference for Knockout.js -->
     <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/knockout/3.5.0/knockout-min.js'></script>
-
+    <script type="text/javascript" src="js/knockout-mapping-v2.4.1.js"></script>
     <!-- Custom Scripts -->
     <script type='text/javascript' src='js/script.js'></script>
 </body>

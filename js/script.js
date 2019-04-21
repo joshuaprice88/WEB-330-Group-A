@@ -5,8 +5,11 @@ $(document).ready(function(){
     function GameViewModel(){
 
       //set variables
-      var firstName = ko.observable("");
-      var lastName = ko.observable("");
+      // Tyler's Changes
+      let self = this;
+      self.firstName = ko.observable("");
+      self.lastName = ko.observable("");
+      // End Tyler's Changes
       var correctAnswers = ko.observable(0);
       var incorrectAnswers = ko.observable(0);
       var totalAnswers = correctAnswers + incorrectAnswers;
@@ -41,6 +44,11 @@ $(document).ready(function(){
       // Diplay Name where needed
       */
 
+      /* Tyler's Response:
+      // Done. I set firstName & var lastName to ko.observables (i.e. this.firstName). For example, 
+      // anytime you want to reference the first name, just use 'data-bind="value: firstName"'
+      */
+
       /* Josh Price
       // ajax question and loop them to create categories and question squars
       // add click that passes a "questionId" param to model
@@ -67,6 +75,7 @@ $(document).ready(function(){
   };
 
   //applying the bindings in the GameViewModel
-  ko.applyBindings(GameViewModel);
+  // Tyler's Change: corrected binding's application
+  ko.applyBindings(new GameViewModel());
 
 }); //END OF DOCUMENT.READY FUNCTION
