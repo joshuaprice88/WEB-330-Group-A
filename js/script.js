@@ -87,6 +87,44 @@ $(document).ready(function(){
       // add click that passes a "questionId" param to model
       */
 
+     $.getJSON("data/questions.json", function(data, status) {
+      if(status !== 'success') {
+        alert("Something went wrong while fetching questions, please try again.")
+        return;
+      } 
+
+      const $dynamicQuestions = $('#dynamicQuestions');
+      const categories = data.data.categories;
+      
+      // empty current category/questions section
+      $dynamicQuestions.html('');
+      $dynamicQuestions.data('data',data.data.questions);
+      // dynamically populate category/questions
+      for(let category of categories) {
+        const questions = data.data.questions.map(function(question, i) {
+          question.questionId = i;
+          return question;
+        }).filter(function(question) {
+          return question.category === category;
+        });
+
+        $dynamicQuestions.append(categoryTemplate(category,questions));
+        
+
+        //sets questionImage source
+        $(".questionImage").attr('src', 'images/question-mark.svg');
+
+        //on click event to change the image source of .questionImage but only the one that is clicked
+        $(".questionImage").click(function(){
+          //Change image source
+          $(this).attr('src', 'images/js.png');
+          //makes image not clickable
+          $(this).parent().css("pointer-events", 'none');
+        });
+      }
+      console.log(data.data)
+    });
+
       /* Drew Hanson
       // set up model and function to take param of "questionId"from click and pull corresponding data from the ajax
       // loop through potential answers
@@ -104,6 +142,7 @@ $(document).ready(function(){
       // create function that will take the computed observable totalAnswers and see it it is equal to 10
       // if so then direct user to resualts page
       // take Answers variables and display the grading criteria according to rubric.
+      
        Ranking criteria:
         Expert: 8-10 correct answers
         Novice: 6-8 correct answers
@@ -128,3 +167,58 @@ $(document).ready(function(){
   ko.applyBindings(new GameViewModel());
 
 }); //END OF DOCUMENT.READY FUNCTION
+
+function categoryTemplate(category, questions) {
+  return `
+    <div class="col-lg-4 text-center">
+        <h4>${category}</h4>
+        ${questions.map(function(question) {
+          return questionTemplate(question);
+        }).join('')}
+    </div>
+  `;
+}
+function questionTemplate(question) {
+  return `
+  <div class="row">
+    <div class=" col-lg-12 text-center">
+        <a href="" data-toggle="modal" data-target="#questionModal" onclick="showQuestionOptions('${question.questionId}')">
+            <img  alt="js" class="img-thumbnail questionImage">
+        </a>
+    </div>
+  </div>
+  `;
+}
+
+function answerTemplate(key, answer) {
+  return `
+  <div class="form-check">
+      <input class="form-check-input" type="radio" name="answer" id="${key}" value="${key}">
+      <label class="form-check-label" for="${key}">
+          ${answer}
+      </label>
+  </div>
+  `;
+}
+
+function showQuestionOptions(questionId) {
+  
+  // Modal is showing
+  // questionId is available here
+
+  const $dynamicQuestions = $('#dynamicQuestions');
+  const questions =  $dynamicQuestions.data('data');
+
+  const question = questions[questionId];
+
+  const $questionModal = $('#questionModal');
+  $('#question', $questionModal).html(question.question);
+  const $answers = $('#answers', $questionModal);
+  
+  $answers.html('');
+  if(question.a) $answers.append(answerTemplate('a', question.a));
+  if(question.b) $answers.append(answerTemplate('b', question.b));
+  if(question.c) $answers.append(answerTemplate('c', question.c));
+  if(question.d) $answers.append(answerTemplate('d', question.d));
+
+}
