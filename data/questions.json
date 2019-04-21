@@ -72,6 +72,13 @@
         "answer": "C"
       },
       {
+        "category": "Functions",
+        "question":"You can pass an anonymous function as an argument to another function",
+        "a": "True",
+        "b": "False",
+        "answer": "A"
+      }
+      {
         "category": "Bonus",
         "question": "What is correct about callbacks?",
         "a": "A callback is a plan JavaScript function passed to a method as an argument or option.",
