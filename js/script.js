@@ -122,17 +122,10 @@ $(document).ready(function(){
       /* Drew Hanson
       // set up model and function to take param of "questionId"from click and pull corresponding data from the ajax
       // loop through potential answers
-<<<<<<< HEAD
       */
      function questionId (){
       {var question1;
       if (answer=a){
-=======
-      
-     function questionId ()
-      var question1;
-      if (answer=a)
->>>>>>> 1800df1b6877b8a0db27edd0403bf57b60a9cea1
      question1 = "correct";
     } 
     else if (answer !==a) {
@@ -162,12 +155,9 @@ $(document).ready(function(){
       {var question4;
       if (answer=a){
      question4 = "correct";
-<<<<<<< HEAD
     } else if  (answer !==a) {
-=======
     } 
     else if (answer !==a) {
->>>>>>> 1800df1b6877b8a0db27edd0403bf57b60a9cea1
       question4 = "incorrect";
     }
   }
@@ -185,12 +175,7 @@ $(document).ready(function(){
         var question6;
       if (answer=a){
      question6 = "correct";
-<<<<<<< HEAD
     }else if (answer !==a) {
-=======
-    } 
-    else if (answer !==a) {
->>>>>>> 1800df1b6877b8a0db27edd0403bf57b60a9cea1
       question6 = "incorrect";
     }
   }
@@ -225,18 +210,10 @@ $(document).ready(function(){
       var question10;
      if (answer=c){
      question10 = "correct";
-<<<<<<< HEAD
     } else  if (answer !==c) {
       question10 = "incorrect";
     }
   }
-=======
-    } 
-    else if (answer !==c) {
-      question10 = "incorrect";
-    }
-      
->>>>>>> 1800df1b6877b8a0db27edd0403bf57b60a9cea1
       /* Tyler and Drew
       // create function that will check when question submit button is clicked to do the following
       // check to see it answer has been selected if yes go to next step if no stay on question.
