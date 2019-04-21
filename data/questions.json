@@ -77,7 +77,7 @@
         "a": "True",
         "b": "False",
         "answer": "A"
-      }
+      },
       {
         "category": "Bonus",
         "question": "What is correct about callbacks?",

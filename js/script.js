@@ -81,7 +81,7 @@ $(document).ready(function(){
       // add click that passes a "questionId" param to model
       */
 
-     $.getJSON("data/questions.json", function(data, status) {
+     $.getJSON("https://wthomason.github.io/bioSite/data/questions.json", function(data, status) {
       if(status !== 'success') {
         alert("Something went wrong while fetching questions, please try again.");
         return;
@@ -122,12 +122,20 @@ $(document).ready(function(){
       /* Drew Hanson
       // set up model and function to take param of "questionId"from click and pull corresponding data from the ajax
       // loop through potential answers
+<<<<<<< HEAD
       */
      function questionId (){
       {var question1;
       if (answer=a){
+=======
+      
+     function questionId ()
+      var question1;
+      if (answer=a)
+>>>>>>> 1800df1b6877b8a0db27edd0403bf57b60a9cea1
      question1 = "correct";
-    } else if (answer !==a) {
+    } 
+    else if (answer !==a) {
       question1 = "incorrect";
     }
   }
@@ -135,7 +143,8 @@ $(document).ready(function(){
      {var question2;
       if (answer=b){
      question2 = "correct";
-    } else if (answer !==b) {
+    } 
+    else if (answer !==b) {
       question2 = "incorrect";
     }
   }
@@ -143,7 +152,8 @@ $(document).ready(function(){
       {var question3;
       if (answer=a){
      question3 = "correct";
-    } else if (answer !==a) {
+    } 
+    else if (answer !==a) {
       question3 = "incorrect";
     }
   }
@@ -152,7 +162,12 @@ $(document).ready(function(){
       {var question4;
       if (answer=a){
      question4 = "correct";
+<<<<<<< HEAD
     } else if  (answer !==a) {
+=======
+    } 
+    else if (answer !==a) {
+>>>>>>> 1800df1b6877b8a0db27edd0403bf57b60a9cea1
       question4 = "incorrect";
     }
   }
@@ -160,7 +175,8 @@ $(document).ready(function(){
       {var question5;
       if (answer=b){
      question5 = "correct";
-    } else if (answer !==b) {
+    } 
+    else if (answer !==b) {
       question5 = "incorrect";
     }
   }
@@ -169,7 +185,12 @@ $(document).ready(function(){
         var question6;
       if (answer=a){
      question6 = "correct";
+<<<<<<< HEAD
     }else if (answer !==a) {
+=======
+    } 
+    else if (answer !==a) {
+>>>>>>> 1800df1b6877b8a0db27edd0403bf57b60a9cea1
       question6 = "incorrect";
     }
   }
@@ -177,7 +198,8 @@ $(document).ready(function(){
       var question7;
       if (answer=b){
      question7 = "correct";
-    } else if (answer !==b) {
+    } 
+    else if (answer !==b) {
       question7 = "incorrect";
     }
   }
@@ -185,7 +207,8 @@ $(document).ready(function(){
       var question8;
       if (answer=a){
      question8 = "correct";
-    } else if (answer !==a) {
+    } 
+    else if (answer !==a) {
       question8 = "incorrect";
     }
   }
@@ -193,7 +216,8 @@ $(document).ready(function(){
       var question9;
       if (answer=a){
      question9 = "correct";
-    } else if (answer !==a) {
+    } 
+    else if (answer !==a) {
       question9 = "incorrect";
     }
   }
@@ -201,10 +225,18 @@ $(document).ready(function(){
       var question10;
      if (answer=c){
      question10 = "correct";
+<<<<<<< HEAD
     } else  if (answer !==c) {
       question10 = "incorrect";
     }
   }
+=======
+    } 
+    else if (answer !==c) {
+      question10 = "incorrect";
+    }
+      
+>>>>>>> 1800df1b6877b8a0db27edd0403bf57b60a9cea1
       /* Tyler and Drew
       // create function that will check when question submit button is clicked to do the following
       // check to see it answer has been selected if yes go to next step if no stay on question.
