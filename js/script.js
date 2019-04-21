@@ -89,7 +89,7 @@ $(document).ready(function(){
 
      $.getJSON("data/questions.json", function(data, status) {
       if(status !== 'success') {
-        alert("Something went wrong while fetching questions, please try again.")
+        alert("Something went wrong while fetching questions, please try again.");
         return;
       } 
 
