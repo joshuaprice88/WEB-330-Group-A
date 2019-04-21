@@ -20,6 +20,10 @@ $(document).ready(function(){
         return this.correctAnswers() + this.incorrectAnswers();
       }, self);
 
+      self.overallPercentage = ko.computed(function() {
+        return (this.correctAnswers() / this.totalAnswers() * 100).toFixed(0) + "%";
+      }, self);
+
 
 
 
@@ -45,7 +49,7 @@ $(document).ready(function(){
           
         }
       };
-           
+         
 
       //Name Modal button id="startGame" when clicked will trigger startContent to hide and gameContent to show
       $("#startGame").click(function(){
@@ -146,9 +150,7 @@ $(document).ready(function(){
         
      }
       */
-     
-
-     
+          
      
   };//END OF VIEW MODEL
 
