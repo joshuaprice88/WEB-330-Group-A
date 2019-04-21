@@ -86,7 +86,7 @@ $(document).ready(function(){
         alert("Something went wrong while fetching questions, please try again.");
         return;
       } 
-
+      console.log("your in the ajax baby!!")
       const $dynamicQuestions = $('#dynamicQuestions');
       const categories = data.data.categories;
       
