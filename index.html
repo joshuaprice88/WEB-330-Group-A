@@ -91,8 +91,8 @@
             <!--USE THE SPAN TO BIND THE NAME AND COMPUTED OBSERVABLE TO COMBINE THE FIRST AND LAST NAME INTO FULL NAME AND DO THE SAME WITH THE ANSWERS-->
             <nav class="navbar navbar-dark bg-dark">
                 <span class="navbar-brand">Hello, <span data-bind="text: firstName"></span></span>
-                <span class="navbar-brand">Correct Answers: <span>0</span></span>
-                <span class="navbar-brand">Incorrect Answers: <span>0</span></span>
+                <span class="navbar-brand">Correct Answers: <span data-bind="text: correctAnswers"></span></span>
+                <span class="navbar-brand">Incorrect Answers: <span data-bind="text: incorrectAnswers"></span></span>
                 <span class="navbar-brand">Total Answered: <span>0</span></span>
             </nav>
             <br/><br/>

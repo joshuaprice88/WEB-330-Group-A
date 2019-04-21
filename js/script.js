@@ -10,8 +10,10 @@ $(document).ready(function(){
       self.firstName = ko.observable("");
       self.lastName = ko.observable("");
       // End Tyler's Changes
-      var correctAnswers = ko.observable(0);
-      var incorrectAnswers = ko.observable(0);
+      var correctAnswers;
+      var incorrectAnswers;
+      self.correctAnswers = ko.observable(0);
+      self.incorrectAnswers = ko.observable(0);
       var totalAnswers = correctAnswers + incorrectAnswers;
 
       //Name Modal button id="startGame" when clicked will trigger startContent to hide and gameContent to show
