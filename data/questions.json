@@ -1,7 +1,7 @@
 {
   "data": {
     "title": "231 Quiz",
-    "categories": ["Variables", "Arguments", "Functions", "Bonus"],
+    "categories": ["Variables", "Arguments", "Functions", "Bonus Question"],
     "questions": [
       {
         "category": "Variables",
@@ -79,7 +79,7 @@
         "answer": "A"
       },
       {
-        "category": "Bonus",
+        "category": "Bonus Question",
         "question": "What is correct about callbacks?",
         "a": "A callback is a plan JavaScript function passed to a method as an argument or option.",
         "b": "Callbacks can be events, called to give the user a chance to react when a certain state is triggered.",

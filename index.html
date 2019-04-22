@@ -252,10 +252,15 @@
         </div><!--end of gameContent div-->
 
         <div id="results" class="displayNone">
-            <h1>Your game results</h1>
-            <h3>Well <span data-bind="text: firstName" style="font-weight: bold;"></span> <span data-bind="text: lastName" style="font-weight: bold;"></span> lets see how you did!</h3>
-            <h4>Ranking Level: <span id="displayRank" data-bind="ranking: correctAnswers" style="font-weight: bold;"></span></h4>
-            <h4>Overall Percentage: <span data-bind="text: overallPercentage" style="font-weight: bold;"></span></h4>
+            <br><br>
+            <div class="row">
+                <div class="text-center">
+                    <h1>Your game results</h1>
+                    <h3>Well <span data-bind="text: firstName" style="font-weight: bold;"></span> <span data-bind="text: lastName" style="font-weight: bold;"></span> lets see how you did!</h3>
+                    <h4>Ranking Level: <span id="displayRank" data-bind="ranking: correctAnswers" style="font-weight: bold;"></span></h4>
+                    <h4>Overall Percentage: <span data-bind="text: overallPercentage" style="font-weight: bold;"></span></h4>
+                </div>
+            </div>
         </div>
 
     </div><!--END CONTAINER DIV-->
