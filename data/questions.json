@@ -1,7 +1,7 @@
 {
   "data": {
     "title": "231 Quiz",
-    "categories": ["Variables", "Arguments", "Functions"],
+    "categories": ["Variables", "Arguments", "Functions", "Bonus"],
     "questions": [
       {
         "category": "Variables",
