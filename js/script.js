@@ -123,7 +123,7 @@ $(document).ready(function(){
         return
       }
       if (correctValueDecrypted === radioValue){
-        alert("yay you got it right!");
+        
         //on click event to change the image source of .questionImage but only the one that is clicked
         
           //Change image source
@@ -135,14 +135,14 @@ $(document).ready(function(){
        
       }
       if(correctValueDecrypted != radioValue){
-        alert("Try again sucker!!!");
+        
         $(imageClass).attr('src', 'images/js.png');
           //makes image not clickable
         $(imageClass).parent().css("pointer-events", 'none');
 
         self.incorrectAnswers(self.incorrectAnswers() + 1);
       }
-      if(self.totalAnswers === 10){
+      if(self.totalAnswers() === 10){
         $("#startContent").hide();
         $("#gameContent").hide();
         $("#results").show();
