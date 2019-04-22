@@ -24,15 +24,9 @@ $(document).ready(function(){
         return (this.correctAnswers() / this.totalAnswers() * 100).toFixed(0) + "%";
       }, self);
 
-      self.userAnswer = ko.observable('');
-
 
       //CUSTOM BINDING TO DISPLAY RANKING
       ko.bindingHandlers.ranking = {
-        init: function(element, valueAccessor, allBindings, viewModel, bindingContext) {
-            // This will be called when the binding is first applied to an element
-            // Set up any initial state, event handlers, etc. here
-        },
         update: function(element, valueAccessor, allBindings, viewModel, bindingContext) {
           var value = ko.unwrap(valueAccessor());
           //alert(value);
@@ -45,8 +39,7 @@ $(document).ready(function(){
             } 
             if(value < 5){
               $(element).text("Beginner");
-            }
-          
+            } 
         }
       };
          
@@ -200,12 +193,10 @@ $(document).ready(function(){
       // if false add +1 to incorrect answered variable to display correct answers to user
       */
 
-     self.checkAnswer = function() {
-      
-      alert(self.userAnswer());
-      
-      
+     self.checkAnswer = function() { 
+        var correctValue = $('#rightAnswer').html();
         var radioValue = $("input[name='answer']:checked").val();
+        
         if(radioValue){
             alert("Your chose " + radioValue);
         }
@@ -291,6 +282,9 @@ function showQuestionOptions(questionId) {
   const questions =  $dynamicQuestions.data('data');
 
   const question = questions[questionId];
+  const rightAnswer = question.answer;
+  const rightAnswerLowerCase = rightAnswer.toLowerCase();
+  $('#rightAnswer').html(rightAnswerLowerCase);
 
   const $questionModal = $('#questionModal');
   $('#question', $questionModal).html(question.question);
