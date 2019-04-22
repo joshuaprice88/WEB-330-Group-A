@@ -64,7 +64,7 @@ $(document).ready(function(){
         alert("Something went wrong while fetching questions, please try again.");
         return;
       } 
-      console.log("your in the ajax baby!!");
+      
       const $dynamicQuestions = $('#dynamicQuestions');
       const categories = data.data.categories;
       
@@ -86,31 +86,13 @@ $(document).ready(function(){
         //sets questionImage source
         $(".questionImage").attr('src', 'images/question-mark.svg');
 
-        /*
-        //on click event to change the image source of .questionImage but only the one that is clicked
-        $(".questionImage").click(function(){
-          //Change image source
-          $(this).attr('src', 'images/js.png');
-          //makes image not clickable
-          $(this).parent().css("pointer-events", 'none');
-        });
-        */
       }
-      console.log(data.data)
+      
+      //USE FOR TESTING
+      //console.log(data.data)
     });
    
-      /* Tyler and Drew
-      // create function that will check when question submit button is clicked to do the following
-      // check to see it answer has been selected if yes go to next step if no stay on question.
-      // pull answer input and check if correct return true or false
-      // if true add +1 to correct answered variable to display correct answers to user
-      // if false add +1 to incorrect answered variable to display correct answers to user
-      */
-     function incPlus(val) {
-      self.num(self.num() + 1);    
-    }
-
-    
+    //SUBMIT BINDING THAT GETS THE USER ANSWER AND CHECKS IF IT IS CORRECT OR NOT THEN ADDS TO THE SCORE IN NAV BAR
      self.checkAnswer = function() { 
         var correctValue = $('#rightAnswer').html();
         var radioValue = $("input[name='answer']:checked").val();
@@ -120,11 +102,10 @@ $(document).ready(function(){
       
       
       if(radioValue === undefined){
+        //if no answer is selected and button is clicked just return to model
         return
       }
       if (correctValueDecrypted === radioValue){
-        
-        //on click event to change the image source of .questionImage but only the one that is clicked
         
           //Change image source
           $(imageClass).attr('src', 'images/js.png');
@@ -135,43 +116,24 @@ $(document).ready(function(){
        
       }
       if(correctValueDecrypted != radioValue){
-        
+
+        //Change image source
         $(imageClass).attr('src', 'images/js.png');
           //makes image not clickable
         $(imageClass).parent().css("pointer-events", 'none');
 
         self.incorrectAnswers(self.incorrectAnswers() + 1);
+
       }
       if(self.totalAnswers() === 10){
+
         $("#startContent").hide();
         $("#gameContent").hide();
         $("#results").show();
+
       }
-
-        
-      
-      
-    };
-
-      /* William Thomason
-      // create function that will take the computed observable totalAnswers and see it it is equal to 10
-      // if so then direct user to resualts page
-      // take Answers variables and display the grading criteria according to rubric.
-      
-       Ranking criteria:
-        Expert: 8-10 correct answers
-        Novice: 6-8 correct answers
-        Beginner: Less than 6 correct answers
-        var total = 0;
-      
-     if(total === 10){
-      $("#startContent").hide();
-      $("#gameContent").hide();
-      $("#results").show();        
-        
-     }
-      */
-          
+ 
+    };        
      
   };//END OF VIEW MODEL
 
@@ -214,13 +176,6 @@ function answerTemplate(key, answer) {
   `;
 }
 
-function buttonTemplate(key, answer) {
-  return `<button type="button" class="btn btn-success" id="submitAnswer">Submit Answer</button>
-  
-      ${key}
-          ${answer}
-  `;
-}
 
 function showQuestionOptions(questionId) {
   
@@ -248,12 +203,15 @@ function showQuestionOptions(questionId) {
   if(question.d) $answers.append(answerTemplate('d', question.d));
 
 }
+
 /*
 Answer encryption key
 a = 1345
 b = 2891
 c = 9371
 d = 7958
+
+These functions encrypt and decrypt the answer from the user
 */
 function encryptAnswer(value){
   if(value === 'a'){
