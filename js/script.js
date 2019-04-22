@@ -196,10 +196,11 @@ $(document).ready(function(){
      self.checkAnswer = function() { 
         var correctValue = $('#rightAnswer').html();
         var radioValue = $("input[name='answer']:checked").val();
+        var correctValueDecrypted = decryptAnswer(correctValue);
         
-        if(radioValue){
-            alert("Your chose " + radioValue);
-        }
+
+
+        
       
       
     };
@@ -284,7 +285,9 @@ function showQuestionOptions(questionId) {
   const question = questions[questionId];
   const rightAnswer = question.answer;
   const rightAnswerLowerCase = rightAnswer.toLowerCase();
-  $('#rightAnswer').html(rightAnswerLowerCase);
+  const rightAnswerEncrypt = encryptAnswer(rightAnswerLowerCase);
+  
+  $('#rightAnswer').html(rightAnswerEncrypt);
 
   const $questionModal = $('#questionModal');
   $('#question', $questionModal).html(question.question);
@@ -296,4 +299,40 @@ function showQuestionOptions(questionId) {
   if(question.c) $answers.append(answerTemplate('c', question.c));
   if(question.d) $answers.append(answerTemplate('d', question.d));
 
+}
+/*
+Answer encryption key
+a = 1345
+b = 2891
+c = 9371
+d = 7958
+*/
+function encryptAnswer(value){
+  if(value === 'a'){
+    return '1345';
+  }
+  if(value === 'b'){
+    return '2891';
+  }
+  if(value === 'c'){
+    return '9371';
+  }
+  if(value === 'd'){
+    return '7958';
+  }
+}
+
+function decryptAnswer(value){
+  if(value === '1345'){
+    return 'a';
+  }
+  if(value === '2891'){
+    return 'b';
+  }
+  if(value === '9371'){
+    return 'c';
+  }
+  if(value === '7958 '){
+    return 'd';
+  }
 }
