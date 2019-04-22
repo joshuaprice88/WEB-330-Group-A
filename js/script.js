@@ -1,3 +1,12 @@
+/*
+============================================
+; Title:  Custom Scripts
+; Author: William Thomason, Drew Hanson, Tyler Armstrong, Josh Price
+; Date:   1 April 2019
+;File: script.js
+; Description: Custom Scripts for Game
+;===========================================
+*/
 
 $(document).ready(function(){
     
@@ -87,7 +96,7 @@ $(document).ready(function(){
         $(".questionImage").attr('src', 'images/question-mark.svg');
 
       }
-      
+
       //USE FOR TESTING
       //console.log(data.data)
     });
