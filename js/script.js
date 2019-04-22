@@ -142,6 +142,11 @@ $(document).ready(function(){
 
         self.incorrectAnswers(self.incorrectAnswers() + 1);
       }
+      if(self.totalAnswers === 10){
+        $("#startContent").hide();
+        $("#gameContent").hide();
+        $("#results").show();
+      }
 
         
       
