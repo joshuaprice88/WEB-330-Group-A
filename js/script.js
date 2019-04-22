@@ -106,7 +106,11 @@ $(document).ready(function(){
       // if true add +1 to correct answered variable to display correct answers to user
       // if false add +1 to incorrect answered variable to display correct answers to user
       */
+     function incPlus(val) {
+      self.num(self.num() + 1);    
+    }
 
+    
      self.checkAnswer = function() { 
         var correctValue = $('#rightAnswer').html();
         var radioValue = $("input[name='answer']:checked").val();
@@ -127,7 +131,7 @@ $(document).ready(function(){
           //makes image not clickable
           $(imageClass).parent().css("pointer-events", 'none');
 
-          //self.correctAnswers() = ++1;
+          self.correctAnswers(self.correctAnswers() + 1);
        
       }
       if(correctValueDecrypted != radioValue){
@@ -135,6 +139,8 @@ $(document).ready(function(){
         $(imageClass).attr('src', 'images/js.png');
           //makes image not clickable
         $(imageClass).parent().css("pointer-events", 'none');
+
+        self.incorrectAnswers(self.incorrectAnswers() + 1);
       }
 
         
