@@ -24,7 +24,7 @@ $(document).ready(function(){
         return (this.correctAnswers() / this.totalAnswers() * 100).toFixed(0) + "%";
       }, self);
 
-      self.userAnswer = ko.observable("");
+      self.userAnswer = ko.observable('');
 
 
       //CUSTOM BINDING TO DISPLAY RANKING
@@ -201,15 +201,14 @@ $(document).ready(function(){
       */
 
      self.checkAnswer = function() {
-
-      console.log($("#radio1 input[type='radio']:checked").val()); 
-
-      var selectedVal = "";
-      var selected = $("#radio input[type='radio']:checked");
-      if (selected.length > 0) {
-        selectedVal = selected.val();
-        console.log(selectedVal);
-      }
+      
+      alert(self.userAnswer());
+      
+      
+        var radioValue = $("input[name='answer']:checked").val();
+        if(radioValue){
+            alert("Your chose " + radioValue);
+        }
       
       
     };
@@ -236,9 +235,9 @@ $(document).ready(function(){
      
   };//END OF VIEW MODEL
 
-  //applying the bindings in the GameViewModel
-  // Tyler's Change: corrected binding's application
-  ko.applyBindings(new GameViewModel());
+  
+  
+  ko.applyBindings(new GameViewModel()); //applying the bindings in the GameViewModel
 
 }); //END OF DOCUMENT.READY FUNCTION
 
